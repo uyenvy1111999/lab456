@@ -14,7 +14,7 @@ namespace lab456.ViewModels
         public string Date { get; set; }
         [Recquired]
         public string Time { get; set; }
-        [Recquired]
+        [Recquired] 
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         
