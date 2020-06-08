@@ -9,11 +9,11 @@ using System.Web.Mvc;
 
 namespace lab456.Controllers
 {
-    public class CoureseController : Controller
+    public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public CoureseController()
+        public CoursesController()
         {
             _dbContext = new ApplicationDbContext();
         }
@@ -33,8 +33,14 @@ namespace lab456.Controllers
 
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }
             var course = new Course
             {
                 LecturerId = User.Identity.GetUserId(),
