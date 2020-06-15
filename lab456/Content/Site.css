@@ -2,3 +2,24 @@
     background-color: #3b1e80;
     border-color: #080808;
 }
+.course 
+{
+    list-style: none;
+}
+.course > li{
+    position: relative;
+    margin-bottom: 30px;
+}
+.course > li.date {
+    text-align: center;
+    background-color: #b6ff00;
+    color: white;
+    width: 60px;
+    border-radius: 8px;
+}
+.course > li.details
+{
+    position: absolute;
+    top: 0;
+    left: 70px;
+}
